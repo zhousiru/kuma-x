@@ -6,7 +6,7 @@ import type {
 import { getKumaBaseUrl, statusPageApiPath } from "./url";
 
 const isServer = typeof window === "undefined";
-const serverFetchInit = { next: { revalidate: 30 } } as RequestInit;
+const serverFetchInit: RequestInit = { cache: "no-store" };
 
 function endpoint(path: string): string {
   if (!isServer) return path;
